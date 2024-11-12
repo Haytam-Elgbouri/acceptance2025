@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.haytam.calculatrice.CalculatriceApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-11-12T14:11:44" hostname="abdelbasset-virtual-machine" time="2.722">
+  <properties/>
+  <testcase name="contextLoads()" classname="com.haytam.calculatrice.CalculatriceApplicationTests" time="2.722"/>
+  <system-out><![CDATA[15:11:36.615 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.haytam.calculatrice.CalculatriceApplicationTests]: CalculatriceApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+15:11:37.515 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.haytam.calculatrice.CalculatriceApplication for test class com.haytam.calculatrice.CalculatriceApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.4)
+
+2024-11-12T15:11:39.283+01:00  INFO 4892 --- [calculatrice] [    Test worker] c.h.c.CalculatriceApplicationTests       : Starting CalculatriceApplicationTests using Java 17.0.12 with PID 4892 (started by abdelbasset in /home/abdelbasset/Desktop/acceptance2025)
+2024-11-12T15:11:39.300+01:00  INFO 4892 --- [calculatrice] [    Test worker] c.h.c.CalculatriceApplicationTests       : No active profile set, falling back to 1 default profile: "default"
+2024-11-12T15:11:44.136+01:00  INFO 4892 --- [calculatrice] [    Test worker] c.h.c.CalculatriceApplicationTests       : Started CalculatriceApplicationTests in 5.863 seconds (process running for 13.813)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,54 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.3.4'
+    id 'io.spring.dependency-management' version '1.1.6'
+    id 'jacoco'
+}
+
+group = 'com.haytam'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17) // Uses Java 21 toolchain
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.7.0-M1' // JUnit 5 for testing
+}
+
+tasks.named('test') {
+    useJUnitPlatform() // Ensures JUnit 5 platform is used for tests
+}
+
+jacoco {
+    toolVersion = "0.8.8" // Ensure you have the latest version compatible with your setup
+}
+
+jacocoTestReport {
+    reports {
+        html.required = true // Generates HTML report for Jenkins to publish
+        xml.required = true // XML can be useful for other reporting tools if needed
+        csv.required = false
+    }
+}
+
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                minimum = 0.2 // Sets minimum coverage threshold to 20%
+            }
+        }
+    }
+}
+
+check.dependsOn jacocoTestCoverageVerification // Ensures coverage check is part of the `check` task
+
