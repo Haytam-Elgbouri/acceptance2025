@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Docker push') {
             steps {
-                sh "docker push calculatrice"
+                sh "docker images"
             }
         }
         stage('Déploiement sur staging') {
