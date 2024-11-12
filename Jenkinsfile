@@ -40,12 +40,7 @@ pipeline {
     }
     post {
         always {
-            script {
-                try {
-                    sh "docker rm calculatrice"
-                } catch (Exception e) {
-                    echo "Aucun conteneur Docker à arrêter"
-                }
+                    sh "docker stop $(docker ps -q)"
             }
         }
     }
