@@ -1,7 +1,12 @@
 pipeline {
     agent any
     stages {
-        
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
         stage('Package') {
             steps {
                 sh './gradlew build'
@@ -9,12 +14,12 @@ pipeline {
         }
         stage('Docker build') {
             steps {
-                sh "docker build -t localhost:5000/calculatric ."
+                sh "docker build -t calculatrice ."
             }
         }
         stage('Docker push') {
             steps {
-                sh "docker push localhost:5000/calculatric"
+                sh "docker push calculatrice"
             }
         }
         stage('Déploiement sur staging') {
@@ -27,12 +32,21 @@ pipeline {
             }
         }
         stage('Test d\'acceptation') {
-            when {
-                expression { currentBuild.result == null || currentBuild.result == 'SUCCESS' }
-            }
             steps {
-                echo 'Tests d\'acceptation en cours...'
-                // Ajoutez ici les tests d'acceptation
+            sleep 60
+            sh "chmod +x acceptance_test.sh && ./acceptance_test.sh"
+            }
+        }
+    }
+    post {
+        always {
+            script {
+                try {
+                    sh "docker stop calculatrice"
+                    sh "docker rm calculatrice"
+                } catch (Exception e) {
+                    echo "Aucun conteneur Docker à arrêter"
+                }
             }
         }
     }
