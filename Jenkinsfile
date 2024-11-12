@@ -47,7 +47,7 @@ pipeline {
 
     post {
         always {
-            sh "docker stop $(docker ps -q) || true"  
+sh 'docker stop \$\(docker ps -q\) || true'
         }
     }
 }
